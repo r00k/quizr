@@ -1,4 +1,10 @@
-module Question.Model (Model, initialModel) where
+module Question.Model (Model, initialModel, Status(..)) where
+
+
+type Status
+  = Correct
+  | Incorrect
+  | Unanswered
 
 
 type alias Model =
@@ -6,6 +12,8 @@ type alias Model =
   , difficulty : String
   , text : String
   , response : String
+  , status : Status
+  , answer : String
   }
 
 
@@ -15,4 +23,6 @@ initialModel =
   , difficulty = "Hard"
   , text = "What is the name of the first Star Wars movie?"
   , response = ""
+  , status = Unanswered
+  , answer = "Star Wars"
   }
