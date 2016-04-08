@@ -11,7 +11,12 @@ type Action
 
 update : Action -> Model -> ( Model, Effects Action )
 update action model =
-  ( model, Effects.none )
+  case action of
+    Noop ->
+      ( model, Effects.none )
+
+    UpdateResponse response ->
+      ( { model | response = response }, Effects.none )
 
 
 init : ( Model, Effects Action )
