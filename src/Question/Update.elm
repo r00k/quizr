@@ -1,4 +1,4 @@
-module Question.Update (update, init) where
+module Question.Update (update, init, Action) where
 
 import Question.Model exposing (..)
 import Effects exposing (Effects)
@@ -14,5 +14,5 @@ update action model =
 
 
 init : ( Model, Effects Action )
-init = 
+init =
   ( initialModel, Effects.none )

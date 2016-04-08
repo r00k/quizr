@@ -1,15 +1,17 @@
 module Main (..) where
 
+import Task exposing (Task)
+import Effects exposing (Effects)
 import Html exposing (..)
 import Question.Model exposing (..)
 import Question.View
-import Question.Update exposing (init, update)
+import Question.Update exposing (init, update, Action)
 import StartApp
 
 
 app : StartApp.App Model
 app =
-  StartApp.start 
+  StartApp.start
     { init = init
     , view = view
     , update = update
@@ -22,8 +24,8 @@ main =
   app.html
 
 
-view : Model -> Html
-view question' =
+view : Signal.Address Question.Update.Action -> Model -> Html
+view address question' =
   div
     []
     [ pageTitle
@@ -34,3 +36,8 @@ view question' =
 pageTitle : Html
 pageTitle =
   h1 [] [ text "QuizR" ]
+
+
+port tasks : Signal (Task Effects.Never ())
+port tasks =
+  app.tasks
