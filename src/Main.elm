@@ -3,11 +3,23 @@ module Main (..) where
 import Html exposing (..)
 import Question.Model exposing (..)
 import Question.View
+import Question.Update exposing (init, update)
+import StartApp
 
 
-main : Html
+app : StartApp.App Model
+app =
+  StartApp.start 
+    { init = init
+    , view = view
+    , update = update
+    , inputs = []
+    }
+
+
+main : Signal Html
 main =
-  view initialQuestion
+  app.html
 
 
 view : Model -> Html

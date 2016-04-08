@@ -1,4 +1,4 @@
-module Question.Model (Model, initialQuestion) where
+module Question.Model (Model, initialModel) where
 
 
 type alias Model =
@@ -8,8 +8,8 @@ type alias Model =
   }
 
 
-initialQuestion : Model
-initialQuestion =
+initialModel : Model
+initialModel =
   { category = "Movie"
   , difficulty = "Hard"
   , text = "What is the name of the first Star Wars movie?"
