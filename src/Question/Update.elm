@@ -1,4 +1,4 @@
-module Question.Update (update, init, Action) where
+module Question.Update (update, init, Action(..)) where
 
 import Question.Model exposing (..)
 import Effects exposing (Effects)
@@ -6,6 +6,7 @@ import Effects exposing (Effects)
 
 type Action
   = Noop
+  | UpdateResponse String
 
 
 update : Action -> Model -> ( Model, Effects Action )
